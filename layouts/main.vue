@@ -84,7 +84,17 @@ import MyNavbar from '@/components/UI/MyNavbar.vue'
    &__list {
       list-style-type: none;
       cursor: pointer;
+      
    }
+   
+   &__list li:hover {
+      transform: scale(0.9);
+   }
+}
+
+a {
+   text-decoration: none;
+   color: black;
 }
 
 </style>

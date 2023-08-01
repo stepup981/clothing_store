@@ -1,6 +1,6 @@
 <template>
-   <div>
-      <h1>ZALUPA</h1>
+   <div class="banner">
+      <h1 class="banner__title">Sale</h1>
    </div>
 </template>
 
@@ -11,5 +11,6 @@
 </script>
 
 <style lang="scss">
+
 
 </style>

@@ -48,6 +48,7 @@
    list-style-type: none;
    cursor: pointer;
 
+
    &__clothing:hover {
       color: rgb(0, 0, 0);
       opacity: 0.5;
@@ -88,7 +89,7 @@
       display: block;
       transition: 1s;
       text-align: left;
-      font-size: 18px;
+      font-size: 16px;
       // отвечает за каждую ссылку
    }
 
