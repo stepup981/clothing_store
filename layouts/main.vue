@@ -58,12 +58,14 @@ export default {
 
 <style lang="scss">
 .header {
+
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.2fr;
   padding: 10px 50px 10px 50px;
   align-items: center;
   text-align: center;
-  position: sticky;
+
+  z-index: 10;
 
   &__title {
     font-family: 'Mogra', cursive;
