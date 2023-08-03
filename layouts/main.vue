@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="sticky">
     <header class="header">
       <MyLinks />
       <h1 class="header__title">Ivanov Store</h1>
@@ -58,14 +58,18 @@ export default {
 
 <style lang="scss">
 .header {
-
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.2fr;
   padding: 10px 50px 10px 50px;
   align-items: center;
   text-align: center;
-
+  position: sticky;
+  background-color: white;
   z-index: 10;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left:0;
 
   &__title {
     font-family: 'Mogra', cursive;
