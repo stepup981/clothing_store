@@ -72,7 +72,7 @@ export default {
   left:0;
 
   &__title {
-    font-family: 'Mogra', cursive;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 64px;
     padding-right: 150px;
   }

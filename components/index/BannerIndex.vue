@@ -66,7 +66,7 @@ export default {
     background-image: url(../../assets/banner/new.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: -50%;
+    background-position: -150%;
     transition: transform 0.5s ease-in-out;
   }
 
