@@ -35,7 +35,7 @@ export default {
   cursor: pointer;
 
   &__first {
-    padding: 300px 250px;
+    padding: 350px 250px;
     font-size: 60px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.493);
@@ -47,7 +47,7 @@ export default {
   }
 
   &__second {
-    padding: 300px 250px;
+    padding: 350px 250px;
     font-size: 60px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.493);
@@ -59,7 +59,7 @@ export default {
   }
 
   &__third {
-    padding: 300px 250px;
+    padding: 350px 250px;
     font-size: 60px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.493);
