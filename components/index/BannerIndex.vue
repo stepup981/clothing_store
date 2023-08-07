@@ -1,17 +1,13 @@
 <script>
 export default {
-  data() {
-    return {
-      currentSlideIndex: 0,
-      totalSlides: 3,
-    }
-  },
   methods: {
     prevSlide() {
-      this.currentSlideIndex = (this.currentSlideIndex - 1 + this.totalSlides) % this.totalSlides
+      const slider = this.$refs.slider
+      slider.scrollBy({ left: -1800, behavior: 'smooth' })
     },
     nextSlide() {
-      this.currentSlideIndex = (this.currentSlideIndex + 1) % this.totalSlides
+      const slider = this.$refs.slider
+      slider.scrollBy({ left: 1800, behavior: 'smooth' })
     },
   },
 }
@@ -19,9 +15,11 @@ export default {
 
 <template>
   <div class="banner">
-    <div class="banner__first" v-show="currentSlideIndex === 0">Скидки</div>
-    <div class="banner__second" v-show="currentSlideIndex === 1">Ограничено</div>
-    <div class="banner__third" v-show="currentSlideIndex === 2">Новое</div>
+    <div class="banner__slider" ref="slider">
+      <div class="banner__first">Скидки</div>
+      <div class="banner__second">Ограничено</div>
+      <div class="banner__third">Новое</div>
+    </div>
     <div class="banner__navigator">
       <div class="banner__arrow-left" @click="prevSlide"></div>
       <div class="banner__arrow-right" @click="nextSlide"></div>
@@ -34,40 +32,34 @@ export default {
   text-align: center;
   cursor: pointer;
 
-  &__first {
-    padding: 350px 250px;
+  &__slider {
+    display: flex;
+    justify-content: space-between;
+    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
+  }
+
+  &__first,
+  &__second,
+  &__third {
+    padding: 350px 750px;
     font-size: 60px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.493);
-    background-image: url(../../assets/banner/sale.png);
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: -50%;
-    transition: transform 0.5s ease-in-out;
+    background-size: cover;
+  }
+
+  &__first {
+    background-image: url(../../assets/banner/test1.jpg);
   }
 
   &__second {
-    padding: 350px 250px;
-    font-size: 60px;
-    font-weight: lighter;
-    color: rgba(255, 255, 255, 0.493);
-    background-image: url(../../assets/banner/limit.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: -20%;
-    transition: transform 0.5s ease-in-out;
+    background-image: url(../../assets/banner/test2.jpg);
   }
 
   &__third {
-    padding: 350px 250px;
-    font-size: 60px;
-    font-weight: lighter;
-    color: rgba(255, 255, 255, 0.493);
-    background-image: url(../../assets/banner/new.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: -150%;
-    transition: transform 0.5s ease-in-out;
+    background-image: url(../../assets/banner/test3.jpg);
   }
 
   &__navigator {

@@ -1,7 +1,7 @@
 <script>
-import BannerIndex from '@/components/index/BannerIndex.vue'
+import BannerIndex from '@/components/index/BannerIndex.vue';
 import BrandsIndex from '@/components/index/BrandsIndex.vue';
-// import GenderIndex from '../components/index/SexIndex.vue';
+import GenderIndex from '@/components/index/GenderIndex.vue';
 
 export default {
   name: 'IndexPage',
@@ -9,7 +9,7 @@ export default {
   components: {
     BannerIndex,
     BrandsIndex,
-    // GenderIndex
+    GenderIndex
   }
 }
 </script>
@@ -18,7 +18,7 @@ export default {
   <div>
     <BannerIndex/>
     <BrandsIndex/>
-    <!-- GenderIndex/> -->
+    <GenderIndex/>
   </div>
 </template>
 

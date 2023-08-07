@@ -14,7 +14,7 @@ export default {
   <div class="sticky">
     <header class="header">
       <MyLinks />
-      <h1 class="header__title">Ivanov Store</h1>
+      <h1 class="header__title">Clothing Store</h1>
       <MyNavbar />
     </header>
     <nuxt />
@@ -82,6 +82,7 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 20px 120px;
+  border-top: 1px solid black;
 
   &__title {
     font-size: 34px;
