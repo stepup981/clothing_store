@@ -18,8 +18,8 @@ export default {}
 <style lang="scss">
 .gender {
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 10px;
+  justify-content: space-around;
+  padding-bottom: 20px;
   padding-left: 50px;
   padding-right: 50px;
 

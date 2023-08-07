@@ -56,10 +56,10 @@ export default {
   &::after {
     content: '';
     position: absolute;
-    top: 110%;
-    bottom: -25%;
+    top: 130%;
+    bottom: -45%;
     width: 90px;
-    background: linear-gradient(to right, white, rgba(255, 255, 255, 0.096));
+    background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0.096));
     z-index: 5;
   }
 
@@ -96,7 +96,7 @@ export default {
     justify-content: space-between;
     z-index: 6;
     padding: 0px 15px 0px 10px;
-    top: 115%;
+    top: 135%;
     bottom: 0;
     left: 0;
     right: 0;
