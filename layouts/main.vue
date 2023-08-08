@@ -81,16 +81,26 @@ export default {
 .footer {
   display: flex;
   justify-content: space-around;
-  padding: 20px 120px;
+  padding: 20px 80px;
   border-top: 1px solid black;
+  margin-bottom: 20px;
 
   &__title {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   &__list {
     list-style-type: none;
     cursor: pointer;
+  }
+
+  &__list li {
+    margin: -20px 0;
+    font-size: 20px;
+  }
+
+  &__list a {
+    font-size: 20px;
   }
 
   &__list li:hover {
