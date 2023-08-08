@@ -95,7 +95,6 @@ export default {
   }
 
   &__list li {
-    margin: -20px 0;
     font-size: 20px;
   }
 
