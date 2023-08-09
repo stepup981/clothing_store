@@ -1,10 +1,10 @@
 <script>
 export default {
   data: () => ({
-    isBrandDropdownVisible: false,
+    activeDropdown: null,
     filters: [
       {
-        name: 'brands',
+        name: 'Бренд',
         items: [
           { id: 0, name: 'Adidas', checked: false },
           { id: 1, name: 'Nike', checked: false },
@@ -20,7 +20,7 @@ export default {
         ],
       },
       {
-        name: 'category',
+        name: 'Категория',
         items: [
           { id: 0, name: 'Толстовки', checked: false },
           { id: 1, name: 'Футболки', checked: false },
@@ -41,7 +41,7 @@ export default {
         ],
       },
       {
-        name: 'size',
+        name: 'Размер',
         items: [
           { id: 0, name: 'XS' },
           { id: 1, name: 'S' },
@@ -51,7 +51,7 @@ export default {
         ],
       },
       {
-        name: 'gender',
+        name: 'Пол',
         items: [
           { id: 0, name: 'Мужское' },
           { id: 1, name: 'Женское' },
@@ -60,26 +60,30 @@ export default {
     ],
   }),
   methods: {
-    toggleBrandDropdown() {
-      this.isBrandDropdownVisible = !this.isBrandDropdownVisible
+    toggleDropdown(index) {
+      this.activeDropdown = this.activeDropdown === index ? null : index;
     },
-    
   },
 }
 </script>
 
 <template>
   <div class="filter">
-    <div class="filter__dropdown">
+    <div
+      class="filter__dropdown"
+      v-for="(filter, index) in filters"
+      :key="filter.name"
+    >
       <div
-        @click="toggleBrandDropdown"
-        class="filter__brand"
-        v-for="filter in filters"
-        :key="filter.name"
+        @click="toggleDropdown(index)"
+        class="filter__dropdown-block"
       >
         {{ filter.name }}
       </div>
-      <div v-show="isBrandDropdownVisible" class="filter__dropdown-content">
+      <div
+        v-show="activeDropdown === index"
+        class="filter__dropdown-content"
+      >
         <label
           class="filter__label"
           v-for="item in filter.items"
@@ -87,10 +91,13 @@ export default {
           :for="item.name"
         >
           {{ item.name }}
-          <input type="checkbox" 
+          <input 
+            class="filter__checkbox" 
+            type="checkbox" 
             :id="item.name" 
             v-model="item.checked" 
           />
+          <span class="checkmark"></span>
         </label>
         <button class="filter__btn">Применить</button>
       </div>
@@ -110,10 +117,20 @@ export default {
 
   &__dropdown {
     position: relative;
-    display: inline-block;
-    box-shadow: 0 0 1px 0;
-    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    
+    
     cursor: pointer;
+  }
+
+  &__dropdown-block {
+    position: relative;
+    box-shadow: 0 0 1px 0;
+    padding: 10px 10px;
+    background: url(../../assets/icon/dropdowncalatog.png) no-repeat right;
+    padding-right: 25px;
   }
 
   &__dropdown-content {
@@ -123,30 +140,92 @@ export default {
     right: 0;
     left: 0;
     position: absolute;
-    min-width: 180px;
-    box-shadow: 0 0 1px 0;
     display: flex;
     flex-direction: column;
-    scroll-snap-type: y mandatory;
-    height: 145px;
-    overflow-y: auto;
-
-    // отвечает за выпадающий список с ссылаками
+    gap: 5px;
+    
+    overflow-y: scroll;
+    height: 150px;
+    min-width: 150px;
+    box-shadow: 0 0 1px 0;
   }
 
   &__label {
-    font-size: 18px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
     font-weight: lighter;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+  }
+  
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 27px;
+    width: 27px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+
+  &__label:hover .checkmark {
+    background-color: #ccc;
+  }
+  
+  &__checkbox:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  &__checkbox:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  &__label .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
   }
 
   &__btn {
-    margin: 10px 10px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 20px;
     font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #eee;
+    transition: background-color 0.3s;
   }
-}
 
-.filter li {
-  background: url(../../assets/icon/dropdowncalatog.png) no-repeat right;
-  padding-right: 25px;
+  &__btn:hover {
+    background-color: #ccc;
+  }
+
+  &__btn:active {
+    background-color: #2196F3;
+    color: white;
+  }
 }
 </style>

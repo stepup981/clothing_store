@@ -28,40 +28,46 @@ export default {
     <ul class="navbar">
       <li class="navbar__search">
         <transition name="fade">
-          <img
-            class="navbar__img"
-            src="../../assets/icon/search.png"
-            alt="search"
+          <img 
+            class="navbar__img" 
+            src="../../assets/icon/search.png" 
+            alt="search" 
             @click="toggleSearchState"
-            v-if="!isSearchActive"
+            v-if="!isSearchActive" 
           />
         </transition>
         <transition name="slide">
-          <input
-            @click.stop
-            v-if="isSearchActive"
-            class="navbar__input"
+          <input 
+            @click.stop v-if="isSearchActive" 
+            class="navbar__input" 
             type="text"
-            placeholder="Search or click outside"
+            placeholder="Search or click outside" 
           />
         </transition>
       </li>
       <li class="navbar__favorite">
-        <img
-          class="navbar__img"
+        <img 
+          class="navbar__img" 
+          :class="{ 'navbar__img-moved': isSearchActive }" 
           src="../../assets/icon/favorite.png"
-          alt="favorite"
+          alt="favorite" 
         />
       </li>
       <li class="navbar__person">
-        <img
-          class="navbar__img"
+        <img 
+          class="navbar__img" 
+          :class="{ 'navbar__img-moved': isSearchActive }" 
           src="../../assets/icon/person.png"
-          alt="person"
+          alt="person" 
         />
       </li>
       <li class="navbar__bag">
-        <img class="navbar__img" src="../../assets/icon/bag.png" alt="bag" />
+        <img 
+          class="navbar__img" 
+          :class="{ 'navbar__img-moved': isSearchActive }" 
+          src="../../assets/icon/bag.png"
+          alt="bag" 
+        />
       </li>
     </ul>
   </div>
@@ -69,7 +75,8 @@ export default {
 
 <style lang="scss">
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   list-style-type: none;
   cursor: pointer;
   position: relative;
@@ -129,6 +136,19 @@ export default {
   transform: translateX(10%);
 }
 
+.navbar__img-moved {
+  transform: translateX(-100%);
+}
+
+.navbar__search {
+  flex-grow: 1;
+}
+
+.navbar__favorite,
+.navbar__person,
+.navbar__bag {
+  transition: transform 0.4s;
+}
 </style>
 
 
