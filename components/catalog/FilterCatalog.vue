@@ -1,57 +1,101 @@
 <script>
 export default {
   data: () => ({
-    isDropdownVisible: false
+    isBrandDropdownVisible: false,
+    filters: [
+      {
+        name: 'brands',
+        items: [
+          { id: 0, name: 'Adidas', checked: false },
+          { id: 1, name: 'Nike', checked: false },
+          { id: 2, name: 'Puma', checked: false },
+          { id: 3, name: 'Reebok', checked: false },
+          { id: 4, name: 'Carhartt', checked: false },
+          { id: 5, name: 'Dickies', checked: false },
+          { id: 6, name: 'Lyle&Scott', checked: false },
+          { id: 7, name: 'Calvin Klein', checked: false },
+          { id: 8, name: 'New Balance', checked: false },
+          { id: 9, name: 'Ralph Lauren', checked: false },
+          { id: 10, name: 'Champion', checked: false },
+        ],
+      },
+      {
+        name: 'category',
+        items: [
+          { id: 0, name: 'Толстовки', checked: false },
+          { id: 1, name: 'Футболки', checked: false },
+          { id: 2, name: 'Рубашки', checked: false },
+          { id: 3, name: 'Джинсы', checked: false },
+          { id: 4, name: 'Брюки', checked: false },
+          { id: 5, name: 'Шорты', checked: false },
+          { id: 6, name: 'Верхняя одежда', checked: false },
+          { id: 7, name: 'Кроссовки', checked: false },
+          { id: 8, name: 'Кеды', checked: false },
+          { id: 9, name: 'Ботинки', checked: false },
+          { id: 10, name: 'Бейсболки', checked: false },
+          { id: 11, name: 'Панамы', checked: false },
+          { id: 12, name: 'Сумки', checked: false },
+          { id: 13, name: 'Рюкзаки', checked: false },
+          { id: 14, name: 'Белье', checked: false },
+          { id: 15, name: 'Носки', checked: false },
+        ],
+      },
+      {
+        name: 'size',
+        items: [
+          { id: 0, name: 'XS' },
+          { id: 1, name: 'S' },
+          { id: 2, name: 'M' },
+          { id: 3, name: 'L' },
+          { id: 4, name: 'XL' },
+        ],
+      },
+      {
+        name: 'gender',
+        items: [
+          { id: 0, name: 'Мужское' },
+          { id: 1, name: 'Женское' },
+        ],
+      },
+    ],
   }),
   methods: {
-    toggleDropdown() {
-      this.isDropdownVisible = !this.isDropdownVisible;
-    }
-  }
+    toggleBrandDropdown() {
+      this.isBrandDropdownVisible = !this.isBrandDropdownVisible
+    },
+    
+  },
 }
 </script>
 
 <template>
-  <ul class="filter">
+  <div class="filter">
     <div class="filter__dropdown">
-      <li @click="toggleDropdown" class="filter__brand">Бренд</li>
-      <div v-show="isDropdownVisible" class="filter__dropdown-content">
-        <a href="#">Adidas</a>
-        <a href="#">Reebok</a>
-        <a href="#">Converse</a>
-        <a href="#">Nike</a>
-        <!-- тут будет продолжение -->
+      <div
+        @click="toggleBrandDropdown"
+        class="filter__brand"
+        v-for="filter in filters"
+        :key="filter.name"
+      >
+        {{ filter.name }}
+      </div>
+      <div v-show="isBrandDropdownVisible" class="filter__dropdown-content">
+        <label
+          class="filter__label"
+          v-for="item in filter.items"
+          :key="item.id"
+          :for="item.name"
+        >
+          {{ item.name }}
+          <input type="checkbox" 
+            :id="item.name" 
+            v-model="item.checked" 
+          />
+        </label>
+        <button class="filter__btn">Применить</button>
       </div>
     </div>
-    <div class="filter__dropdown">
-      <li @click="toggleDropdown" class="filter__category">Категория</li>
-      <div class="filter__dropdown-content">
-        <a href="#">Кроссовки</a>
-        <a href="#">Брюки</a>
-        <a href="#">Толстовки</a>
-        <a href="#">Футболки</a>
-        <!-- тут будет продолжение -->
-      </div>
-    </div>
-    <div class="filter__dropdown">
-      <li @click="toggleDropdown" class="search__size">Размер</li>
-      <div class="filter__dropdown-content">
-        <a href="#">Adidas</a>
-        <a href="#">Reebok</a>
-        <a href="#">Converse</a>
-        <a href="#">Nike</a>
-        <!-- тут будет продолжение. надо подумать как реализовать размеры обуви и
-        одежы и аксессуаров -->
-      </div>
-    </div>
-    <div class="filter__dropdown">
-      <li @click="toggleDropdown" class="search__gender">Пол</li>
-      <div class="filter__dropdown-content">
-        <a href="#">Мужской</a>
-        <a href="#">Женский</a>
-      </div>
-    </div>
-  </ul>
+  </div>
 </template>
 
 <style lang="scss">
@@ -60,58 +104,49 @@ export default {
   justify-content: center;
   gap: 30px;
   list-style-type: none;
-  
   padding: 20px;
   font-size: 22px;
   font-weight: lighter;
-  
 
   &__dropdown {
     position: relative;
     display: inline-block;
     box-shadow: 0 0 1px 0;
-    padding: 10px 10px;
+    padding: 5px 10px;
     cursor: pointer;
   }
 
   &__dropdown-content {
-    top: 100%;
+    padding: 10px 0px 0px 10px;
+    top: 110%;
     bottom: 0;
     right: 0;
     left: 0;
     position: absolute;
-    background-color: #ffffff;
-    min-width: 160px;
+    min-width: 180px;
     box-shadow: 0 0 1px 0;
-    z-index: 1;
-    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    height: 145px;
+    overflow-y: auto;
 
     // отвечает за выпадающий список с ссылаками
   }
 
-  &__dropdown-content a {
-    color: black;
-    padding: 12px 12px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-size: 16px;
-    margin-bottom: -10px;
-    // отвечает за каждую ссылку
+  &__label {
+    font-size: 18px;
+    font-weight: lighter;
   }
 
-  &__dropdown-content a:hover {
-    color: blue // отвечает за каждую ссылку при наведении
-  }
-
-  &__dropdown:hover &__dropdown-content {
-    display: block;
+  &__btn {
+    margin: 10px 10px;
+    font-size: 18px;
   }
 }
 
 .filter li {
   background: url(../../assets/icon/dropdowncalatog.png) no-repeat right;
   padding-right: 25px;
-
 }
 </style>
