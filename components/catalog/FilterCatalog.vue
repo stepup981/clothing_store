@@ -109,7 +109,7 @@ export default {
 .filter {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   list-style-type: none;
   padding: 20px;
   font-size: 22px;
@@ -120,21 +120,21 @@ export default {
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    
-    
     cursor: pointer;
   }
 
   &__dropdown-block {
     position: relative;
     box-shadow: 0 0 1px 0;
-    padding: 10px 10px;
+    padding: 2px 10px;
     background: url(../../assets/icon/dropdowncalatog.png) no-repeat right;
     padding-right: 25px;
+    background-color: rgba(0, 0, 0, 0.06);
+    font-size: 18px;
   }
 
   &__dropdown-content {
-    padding: 10px 0px 0px 10px;
+    padding: 10px 10px 10px 10px;
     top: 110%;
     bottom: 0;
     right: 0;
@@ -143,11 +143,33 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    
     overflow-y: scroll;
-    height: 150px;
+    height: 190px;
     min-width: 150px;
     box-shadow: 0 0 1px 0;
+    background-color: rgba(0, 0, 0, 0.06);
+
+    &::-webkit-scrollbar {
+      width: 5px; 
+    }
+    
+    &::-webkit-scrollbar-track {
+      background-color: #f0f0f0; 
+      border-radius: 8px; 
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #2196F3; 
+      border-radius: 8px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #979797; 
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #2196F3;
+    }
   }
 
   &__label {
@@ -172,7 +194,7 @@ export default {
   
   .checkmark {
     position: absolute;
-    top: 0;
+    top: 10%;
     left: 0;
     height: 27px;
     width: 27px;
@@ -202,7 +224,7 @@ export default {
     left: 9px;
     top: 5px;
     width: 7px;
-    height: 12px;
+    height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);

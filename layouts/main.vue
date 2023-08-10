@@ -7,6 +7,11 @@ export default {
     MyLinks,
     MyNavbar,
   },
+  methods: {
+    goToHome() {
+      this.$router.push('/')
+    },
+  },
 }
 </script>
 
@@ -14,7 +19,7 @@ export default {
   <div class="sticky">
     <header class="header">
       <MyLinks />
-      <h1 class="header__title">Clothing Store</h1>
+      <h1 @click="goToHome" class="header__title">Clothing Store</h1>
       <MyNavbar />
     </header>
     <nuxt />
@@ -22,10 +27,15 @@ export default {
       <div class="footer__links">
         <h3 class="footer__title">Помощь покупателю</h3>
         <ul class="footer__list">
-          <li>Магазин</li>
-          <li>Доставка и оплата</li>
-          <li>Условия возврата</li>
-          <li>Таблица размеров</li>
+          <nuxt-link to="/store">
+            <li>Магазин</li>
+          </nuxt-link>
+          <nuxt-link to="/delivery">
+            <li>Доставка и оплата</li>
+          </nuxt-link>
+          <nuxt-link to="/return">
+            <li>Условия возврата</li>
+          </nuxt-link>
         </ul>
       </div>
       <div class="footer__socialmedia">
@@ -66,15 +76,16 @@ export default {
   position: sticky;
   background-color: white;
   z-index: 10;
-  top:0;
+  top: 0;
   bottom: 0;
   right: 0;
-  left:0;
+  left: 0;
 
   &__title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 64px;
     padding-right: 150px;
+    cursor: pointer;
   }
 }
 
