@@ -102,15 +102,19 @@ export default {
     border: none;
     border-bottom: 1px solid #8d8d8d;
     background-color: #ffffff;
-    padding: 0 16px;
+    padding: 0 10px;
     color: #161616;
   }
 
   &__img {
-    transition: 1s;
+    transition: transform 0.4s;
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    &.navbar__img-moved:hover {
+      transform: translateX(-100%) scale(1.2);
     }
   }
 }

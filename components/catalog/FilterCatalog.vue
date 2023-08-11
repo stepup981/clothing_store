@@ -77,8 +77,10 @@ export default {
       <div
         @click="toggleDropdown(index)"
         class="filter__dropdown-block"
+        :class="{ 'active': activeDropdown === index }"
       >
         {{ filter.name }}
+        <div class="filter__arrow"></div>
       </div>
       <div
         v-show="activeDropdown === index"
@@ -112,8 +114,8 @@ export default {
   gap: 40px;
   list-style-type: none;
   padding: 20px;
-  font-size: 22px;
-  font-weight: lighter;
+  font-size: 18px;  
+  font-weight: 300;
 
   &__dropdown {
     position: relative;
@@ -126,11 +128,38 @@ export default {
   &__dropdown-block {
     position: relative;
     box-shadow: 0 0 1px 0;
-    padding: 2px 10px;
-    background: url(../../assets/icon/dropdowncalatog.png) no-repeat right;
-    padding-right: 25px;
-    background-color: rgba(0, 0, 0, 0.06);
+    padding: 2px 20px 2px 20px;
+    background-color: rgb(2,2,2,0.1);
     font-size: 18px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #979797;
+    }
+
+    &.active {
+      background-color: #2196F3;
+      color: white;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    width: 6px;
+    height: 6px;
+    transform: rotate(135deg);
+    transition: 0.3s;
+    opacity: 0.8;
+    margin-left: 10px;
+    margin-bottom: 1px;
+  }
+
+  &__dropdown-block.active &__arrow {
+      transform: rotate(-45deg);
+      border-top: 1px solid #ffffff;
+        border-right: 1px solid #ffffff;
   }
 
   &__dropdown-content {
@@ -147,7 +176,8 @@ export default {
     height: 190px;
     min-width: 150px;
     box-shadow: 0 0 1px 0;
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgb(2,2,2,0.1);
+    border-radius: 4px;
 
     &::-webkit-scrollbar {
       width: 5px; 
@@ -239,6 +269,8 @@ export default {
     border-radius: 4px;
     background-color: #eee;
     transition: background-color 0.3s;
+    font-size: 18px;  
+    font-weight: 300;
   }
 
   &__btn:hover {

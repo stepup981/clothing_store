@@ -74,8 +74,6 @@ export default {}
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 15px;
-
-    // отвечает за выпадающий список с ссылаками
   }
 
   &__dropdown-content a {
@@ -86,13 +84,10 @@ export default {}
     transition: 1s;
     text-align: left;
     font-size: 16px;
-    // отвечает за каждую ссылку
   }
 
   &__dropdown-content a:hover {
     transform: translateX(15px);
-
-    // отвечает за каждую ссылку при наведении
   }
 
   &__dropdown:hover &__dropdown-content {

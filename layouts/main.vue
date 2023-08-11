@@ -68,8 +68,9 @@ export default {
 
 <style lang="scss">
 .header {
-  display: grid;
-  grid-template-columns: 0.1fr 1fr 0.2fr;
+  display: flex;
+  justify-content: center;
+  gap: 300px;
   padding: 10px 50px 10px 50px;
   align-items: center;
   text-align: center;
@@ -84,8 +85,8 @@ export default {
   &__title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 64px;
-    padding-right: 150px;
     cursor: pointer;
+    margin-right: 80px;
   }
 }
 

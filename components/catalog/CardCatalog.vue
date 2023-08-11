@@ -2,14 +2,14 @@
 export default {
   data: () => ({
     card: [
-      { id: 0, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 1, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 2, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 3, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 4, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 5, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 6, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
-      { id: 7, image: require('@/assets/card/test.png'), price: '8,999 руб.' },
+      { id: 0, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное' },
+      { id: 1, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 2, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 3, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 4, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 5, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 6, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 7, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
     ],
   }),
 }
@@ -28,6 +28,9 @@ export default {
         alt="image" 
       />
       <p class="card__price">{{ item.price }}</p>
+      <p class="card__name">{{ item.name }}</p>
+      <p class="card__size">{{ item.size }}</p>
+      <p class="card__favorite">{{ item.favorite }}</p>
     </div>
   </div>
 </template>
@@ -41,6 +44,7 @@ export default {
 
   &__item {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
