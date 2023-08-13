@@ -70,7 +70,7 @@ export default {
 .header {
   display: flex;
   justify-content: center;
-  gap: 300px;
+  gap: 400px;
   padding: 10px 50px 10px 50px;
   align-items: center;
   text-align: center;
@@ -86,7 +86,7 @@ export default {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 64px;
     cursor: pointer;
-    margin-right: 80px;
+    margin-right: 120px;
   }
 }
 

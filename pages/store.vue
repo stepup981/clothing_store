@@ -8,7 +8,6 @@
 <template>
   <div class="store">
     <h1 class="store__title">Магазин</h1>
-
   </div>
 </template>
 

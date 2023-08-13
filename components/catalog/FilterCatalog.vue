@@ -128,7 +128,7 @@ export default {
   &__dropdown-block {
     position: relative;
     box-shadow: 0 0 1px 0;
-    padding: 2px 20px 2px 20px;
+    padding: 10px 30px;
     background-color: rgb(2,2,2,0.1);
     font-size: 18px;
     transition: background-color 0.3s;
@@ -173,7 +173,7 @@ export default {
     flex-direction: column;
     gap: 5px;
     overflow-y: scroll;
-    height: 190px;
+    height: 140px;
     min-width: 150px;
     box-shadow: 0 0 1px 0;
     background-color: rgb(2,2,2,0.1);

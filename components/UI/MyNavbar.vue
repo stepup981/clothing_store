@@ -53,7 +53,7 @@ export default {
           alt="favorite" 
         />
       </li>
-      <li class="navbar__person">
+        <li class="navbar__person">
         <img 
           class="navbar__img" 
           :class="{ 'navbar__img-moved': isSearchActive }" 
