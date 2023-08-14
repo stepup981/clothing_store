@@ -34,9 +34,15 @@ export default {
 <template>
   <div>
     <div class="navigation">
-      <div class="navigation__flex" v-for="tab in tabs" :key="tab.id">
-        <div class="navigation__flex-block" :class="{ 'active': tab.componentName === myComponentName }"
-          @click="switchComponent(tab.componentName)">{{ tab.name }}</div>
+      <div class="navigation__flex" 
+        v-for="tab in tabs" 
+        :key="tab.id"
+      >
+        <div 
+          class="navigation__flex-block" 
+          :class="{ 'active': tab.componentName === myComponentName }"
+          @click="switchComponent(tab.componentName)">{{ tab.name }}
+        </div>
       </div>
     </div>
     <component :is="myComponentName"></component>

@@ -19,10 +19,17 @@ export default {
       <h1 class="profile__title">Профиль</h1>
       <form class="profile__form" method="post">
         <div class="profile__fields">
-          <div class="profile__field" v-for="item in profile" :key="item.id">
-            <label class="profile__label" :for="item.name">
+          <div class="profile__field" 
+            v-for="item in profile" 
+            :key="item.id"
+          >
+            <label class="profile__label" 
+              :for="item.name">
               {{ item.name }}
-              <input class="profile__input" type="text" :id="item.name" />
+              <input class="profile__input" 
+                type="text" 
+                :id="item.name" 
+              />
             </label>
           </div>
         </div>
