@@ -7,7 +7,7 @@
 
 <template>
   <div class="store">
-    <h1 class="store__title">Магазин</h1>
+    <h1 class="store__title">Магазин dsadasd</h1>
   </div>
 </template>
 
