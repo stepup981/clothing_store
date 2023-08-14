@@ -70,7 +70,7 @@ export default {
 .header {
   display: flex;
   justify-content: center;
-  gap: 400px;
+  gap: 300px;
   padding: 10px 50px 10px 50px;
   align-items: center;
   text-align: center;

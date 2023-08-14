@@ -1,21 +1,21 @@
 <script>
-import FilterCatalog from '@/components/catalog/FilterCatalog.vue';
-import CardCatalog from '@/components/catalog/CardCatalog.vue';
+import FilterCatalog from '@/components/catalog/FilterCatalog.vue'
+import CardCatalog from '@/components/catalog/CardCatalog.vue'
 
-  export default {
-    name: 'CatalogPage',
-    layout: 'main',
-    components: {
-      FilterCatalog,
-      CardCatalog
-    }
-  }
+export default {
+  name: 'CatalogPage',
+  layout: 'main',
+  components: {
+    FilterCatalog,
+    CardCatalog,
+  },
+}
 </script>
 
 <template>
   <div>
-    <FilterCatalog/>
-    <CardCatalog/>
+    <FilterCatalog />
+    <CardCatalog />
   </div>
 </template>
 
@@ -29,5 +29,5 @@ import CardCatalog from '@/components/catalog/CardCatalog.vue';
   font-family: 'Rubik', sans-serif;
   font-size: 24px;
 }
+</style>    
 
-</style>
