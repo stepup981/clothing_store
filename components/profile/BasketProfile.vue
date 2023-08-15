@@ -133,7 +133,7 @@ export default {
     font-weight: 300;
     background-color: #2196f3;
     color: #fff;
-    padding: 0px 40px;
+    padding: 10px 40px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -147,3 +147,4 @@ export default {
   }
 }
 </style>
+
