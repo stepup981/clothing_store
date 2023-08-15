@@ -64,7 +64,6 @@ export default {
   justify-content: center;
   padding: 20px;
   gap: 50px;
-  font-size: 18px;
   font-weight: 300;
 
   &__flex-block {

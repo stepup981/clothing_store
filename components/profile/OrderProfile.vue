@@ -38,7 +38,7 @@ export default {
         <div class="order__row" v-for="order in orders" :key="order.id">
           <div class="left-side">
             <a href="" class="order__number">{{ order.number }}</a>
-            <div class="order-price">{{ order.price }}</div>
+            <div class="order__price">{{ order.price }}</div>
             <div class="order__status">{{ order.status }}</div>
           </div>
           <div class="order__date">{{ order.date }}</div>
@@ -49,7 +49,7 @@ export default {
         <div class="order__row" v-for="item in history" :key="item.id">
           <div class="left-side">
             <a href="" class="order__number">{{ item.number }}</a>
-            <div class="order-price">{{ item.price }}</div>
+            <div class="order__price">{{ item.price }}</div>
             <div class="order__status">{{ item.status }}</div>
           </div>
           <div class="order__date">{{ item.date }}</div>
@@ -62,7 +62,7 @@ export default {
 <style lang="scss">
 .order {
   margin: 50px;
-  max-width: 1200px;
+  max-width: 1050px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 300;
@@ -70,7 +70,6 @@ export default {
   &__container {
     padding: 20px;
     border-radius: 10px;
-    font-size: 18px;
   }
   &__table {
     margin-bottom: 30px;
@@ -84,7 +83,6 @@ export default {
     justify-content: space-between;
     margin: 45px 0px;
     border-bottom: 1px solid #ccc;
-    font-size: 18px;
     
     .left-side {
       display: flex;
@@ -95,7 +93,13 @@ export default {
   &__number {
     text-decoration: none;
     color: #2196f3;
-    font-size: 18px;
+    font-size: 20px;
+  }
+
+  &__price,
+  &__status,
+  &__date {
+    font-size: 20px;
   }
 }
 </style>

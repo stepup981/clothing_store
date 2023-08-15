@@ -106,7 +106,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     &:hover {
-      background-color: #979797;
+      opacity: 0.8;
     }
   }
 }

@@ -2,14 +2,14 @@
 export default {
   data: () => ({
     card: [
-      { id: 0, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное' },
-      { id: 1, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 2, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 3, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 4, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 5, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 6, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
-      { id: 7, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 0, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное' },
+      { id: 1, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 2, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 3, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 4, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 5, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 6, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
+      { id: 7, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: 'size', favorite: 'Добавить в избранное'  },
     ],
   }),
 }
@@ -30,7 +30,7 @@ export default {
       <p class="card__price">{{ item.price }}</p>
       <p class="card__name">{{ item.name }}</p>
       <p class="card__size">{{ item.size }}</p>
-      <p class="card__favorite">{{ item.favorite }}</p>
+      <button class="card__btn">{{ item.favorite }}</button>
     </div>
   </div>
 </template>
@@ -48,11 +48,6 @@ export default {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-
-    &:hover {
-      transition: 0.5s;
-      color: #2196f3;
-    }
   }
 
   &__price {
@@ -63,6 +58,24 @@ export default {
   &__img {
     max-width: 100%;
     max-height: 100%;
+  }
+
+  &__btn {
+    font-size: 20px;
+    font-weight: 300;
+    background-color: #2196f3;
+    color: #fff;
+    padding: 0px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 </style>
