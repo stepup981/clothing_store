@@ -1,32 +1,36 @@
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-  computed: {
-    ...mapGetters([ 'getProducts'])
-  },
-  async mounted() {
-    await this.$store.dispatch('fetchProductsData');
-  },
+  data: () => ({
+    card: [
+      { id: 0, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное' },
+      { id: 1, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 2, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 3, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 4, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 5, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 6, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+      { id: 7, image: require('@/assets/card/test.png'), price: '8,999 руб.', name: 'Adidas Ozelia', size: '...', favorite: 'Добавить в избранное'  },
+    ],
+  }),
 }
 </script>
 
 <template>
   <div class="card">
     <div 
-    v-for="(item, index) in getProducts" 
-      :key="index"  
+      v-for="item in card" 
+      :key="item.id" 
       class="card__item"
     >
-      <!-- <img 
+      <img 
         class="card__img" 
-        :src="item.url" 
+        :src="item.image" 
         alt="image" 
-      /> -->
+      />
       <p class="card__price">{{ item.price }}</p>
       <p class="card__name">{{ item.name }}</p>
-      <!-- <p class="card__size">{{ item.size }}</p>
-      <button class="card__btn">{{ item.favorite }}</button> -->
+      <p class="card__size">{{ item.size }}</p>
+      <button class="card__btn">{{ item.favorite }}</button>
     </div>
   </div>
 </template>
@@ -61,7 +65,7 @@ export default {
     font-weight: 300;
     background-color: #2196f3;
     color: #fff;
-    padding: 0px 40px;
+    padding: 10px 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
