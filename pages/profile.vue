@@ -26,6 +26,11 @@ export default {
     switchComponent(componentName) {
       this.myComponentName = componentName;
     },
+  },
+  computed: {
+    component() {
+      return this.$route.qury.component || 'defaulComponent'
+    }
   }
 }
 </script>

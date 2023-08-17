@@ -19,8 +19,11 @@ export default {
         window.removeEventListener('click', this.handleWindowClick)
       }
     },
-    goComponentsIs() {
-      this.$router.push( '/profile', { component: 'FavoriteProfile'});
+    goComponentsIs(FavoriteProfile) {
+      this.$router.push({
+      path: '/profile',
+      query: { component: FavoriteProfile }
+    })
     }
   },
 }
@@ -54,7 +57,7 @@ export default {
           :class="{ 'navbar__img-moved': isSearchActive }" 
           src="../../assets/icon/favorite.png"
           alt="favorite"
-          @click="goComponentsIs"
+          @click="goComponentsIs('FavoriteProfile')"
         />
       </li>
         <li class="navbar__person">

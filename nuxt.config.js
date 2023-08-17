@@ -35,5 +35,15 @@ export default {
   build: {
     standalone: true
   },
+
+  router: {
+    routes: [
+      {
+        // name: 'favorite',
+        path: '/',
+        component: '@/pages/profile.vue'
+      }
+    ]
+  }
   
 }
