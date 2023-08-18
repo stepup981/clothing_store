@@ -1,11 +1,11 @@
 <script>
-import MainProfile from '@/components/profile/MainProfile.vue';
+import MainProfile from '@/components/profile/MainProfile.vue'
 import OrderProfile from '@/components/profile/OrderProfile.vue'
 import FavoriteProfile from '@/components/profile/FavoriteProfile.vue'
 import BasketProfile from '@/components/profile/BasketProfile.vue'
 
 export default {
-  name: "ProfilePage",
+  name: 'ProfilePage',
   layout: 'main',
   components: {
     MainProfile,
@@ -15,38 +15,39 @@ export default {
   },
   data: () => ({
     tabs: [
-      { id: 0, name: "Профиль", componentName: "MainProfile" },
-      { id: 1, name: "Заказы", componentName: "OrderProfile" },
-      { id: 2, name: "Избранное", componentName: "FavoriteProfile" },
-      { id: 3, name: "Корзина", componentName: "BasketProfile" },
+      { id: 0, name: 'Профиль', componentName: 'MainProfile' },
+      { id: 1, name: 'Заказы', componentName: 'OrderProfile' },
+      { id: 2, name: 'Избранное', componentName: 'FavoriteProfile' },
+      { id: 3, name: 'Корзина', componentName: 'BasketProfile' },
     ],
     myComponentName: 'MainProfile',
   }),
   methods: {
     switchComponent(componentName) {
-      this.myComponentName = componentName;
+      this.myComponentName = componentName
     },
   },
   computed: {
     component() {
       return this.$route.qury.component || 'defaulComponent'
-    }
-  }
+    },
+  },
+  mounted() {
+    this.myComponentName = this.$route.query.component
+  },
 }
 </script>
-
 
 <template>
   <div>
     <div class="navigation">
-      <div class="navigation__flex" 
-        v-for="tab in tabs" 
-        :key="tab.id"
-      >
-        <div 
-          class="navigation__flex-block" 
-          :class="{ 'active': tab.componentName === myComponentName }"
-          @click="switchComponent(tab.componentName)">{{ tab.name }}
+      <div class="navigation__flex" v-for="tab in tabs" :key="tab.id">
+        <div
+          class="navigation__flex-block"
+          :class="{ active: tab.componentName === myComponentName }"
+          @click="switchComponent(tab.componentName)"
+        >
+          {{ tab.name }}
         </div>
       </div>
     </div>
@@ -84,7 +85,7 @@ export default {
     }
 
     &.active {
-      background-color: #2196F3;
+      background-color: #2196f3;
       color: white;
     }
   }
