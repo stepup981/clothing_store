@@ -47,8 +47,10 @@ export default {
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.493);
     background-repeat: no-repeat;
-    height: 50%;
-    width: 50%;
+    height: 100%; 
+    width: 100%; 
+    background-position: center; 
+    background-size: cover; 
   }
 
   &__first {

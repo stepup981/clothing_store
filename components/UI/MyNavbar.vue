@@ -23,7 +23,7 @@ export default {
       this.$router.push({
         path: '/profile',
         query: { component: componentName },
-      })
+      });
     },
   },
 }

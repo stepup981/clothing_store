@@ -5,11 +5,15 @@ export default {}
 <template>
   <div class="gender">
     <div class="gender__men">
-      <img src="../../assets/sex/mens.png" alt="" />
+      <div class="gender__scale">
+        <img src="../../assets/sex/mens.png" alt="" />
+      </div>
       <div class="gender__title">Мужское</div>
     </div>
     <div class="gender__women">
-      <img src="../../assets/sex/womens.png" alt="" />
+      <div class="gender__scale">
+        <img src="../../assets/sex/womens.png" alt="" />
+      </div>
       <div class="gender__title">Женское</div>
     </div>
   </div>
@@ -29,13 +33,21 @@ export default {}
     cursor: pointer;
   }
 
+  &__scale {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 30px;
+    
+  }
+
   &__men img,
   &__women img {
     overflow: hidden;
     border-radius: 30px;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
+      transition: 0.5s;
     }
   }
 

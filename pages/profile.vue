@@ -24,16 +24,17 @@ export default {
   }),
   methods: {
     switchComponent(componentName) {
-      this.myComponentName = componentName
-    },
-  },
-  computed: {
-    component() {
-      return this.$route.qury.component || 'defaulComponent'
+      this.myComponentName = componentName;
+      this.$router.push({ path: '/profile', query: { component: componentName } });
     },
   },
   mounted() {
-    this.myComponentName = this.$route.query.component
+    this.myComponentName = this.$route.query.component;
+  },
+  watch: {
+    '$route.query.component'(newComponent) {
+      this.myComponentName = newComponent;
+    },
   },
 }
 </script>
